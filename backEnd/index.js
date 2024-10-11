@@ -72,9 +72,9 @@ app.post("/register", (req, res) => {
   });
 });
 
-// app.get("/", (req,res)=>{
-//   res.json("Hello")
-// })
+app.get("/", (req,res)=>{
+  res.json("Hello")
+})
 
 app.listen(9002, () => {
   console.log("Be started at Port 9002");
