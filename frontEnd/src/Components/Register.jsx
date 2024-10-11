@@ -22,11 +22,14 @@ const Register = ({setLoginRegister}) => {
       ...user, [name]: value
     })
   }
+  axios.defaults.withCredentials=true;
+
 
   const register = () =>{
     const { name, email, password, reEnterPassword } = user
     if( name && email && password && (password == reEnterPassword)){
-      axios.post("http://localhost:9002/register", user)
+      // axios.post("http://localhost:9002/register", user)
+      axios.post("https://blackpink-blink-beryl.vercel.app/register", user)
       .then(res =>{
         // toast(res.data.message, {
         // position: "top-right",
