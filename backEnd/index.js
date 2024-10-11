@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors(
   {
-    origin: ["https://deploy-mern-1whq.vercel.app"],
+    origin: ["https://blackpink-mu.vercel.app/"],
     methods:["POST", "GET"],
     credentials: true
   }
