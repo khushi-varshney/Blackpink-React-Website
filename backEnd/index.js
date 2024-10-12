@@ -9,7 +9,6 @@ app.use(cors(
   {
     origin: ["https://blackpink-mu.vercel.app/"],
     methods:["POST", "GET"],
-    credentials: true
   }
 ));
 
