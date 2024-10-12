@@ -8,8 +8,15 @@ app.use(express.urlencoded());
 app.use(cors(
   {
     origin: ["https://blackpink-mu.vercel.app/"],
+    preflightContinue: true,
     methods:["POST", "GET"],
-    credentials: true
+    credentials: true,
+    "headers": [
+              { "key": "Access-Control-Allow-Credentials", "value": "true" },
+              { "key": "Access-Control-Allow-Origin", "value": "https://blackpink-mu.vercel.app/" },
+              { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+              { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+    ]
   }
 ));
 
@@ -81,7 +88,7 @@ app.get("/", (req,res)=>{
   res.json("Hello")
 })
 
-app.listen(9002, () => {
+app.listen("https://blackpink-blink-beryl.vercel.app/", () => {
   console.log("Be started at Port 9002");
 });
 
