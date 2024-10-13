@@ -5,15 +5,11 @@ import mongoose from "mongoose";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
-app.use((req, res, next) => {
-  res.set({
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-      "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-  });
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', req.header('origin') );
   next();
-}); 
+});
 
 app.use(cors(
   {
@@ -23,8 +19,7 @@ app.use(cors(
     credentials: true,
   }
 ));
-// CORS_ORIGIN_ALLOW_ALL = False
-// CORS_ALLOW_CREDENTIALS = True
+
 
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
 

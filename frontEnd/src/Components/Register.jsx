@@ -31,17 +31,17 @@ const Register = ({setLoginRegister}) => {
       // axios.post("http://localhost:9002/register", user)
       axios.post("https://blackpink-blink-beryl.vercel.app/register", user)
       .then(res =>{
-        // toast(res.data.message, {
-        // position: "top-right",
-        // autoClose: 2000,
-        // hideProgressBar: false,
-        // closeOnClick: true,
-        // pauseOnHover: false,
-        // draggable: true,
-        // progress: undefined,
-        // theme: "dark",
-        // });
-        // setLoginRegister(res.data.user);
+        toast(res.data.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+        setLoginRegister(res.data.user);
         navigate("/login");
     })
     }else {
@@ -78,7 +78,7 @@ const Register = ({setLoginRegister}) => {
           <form>
             <div className="">
               <label className="form-label font-semibold mx-1 text-xl ">
-              Your FullName :{" "}
+              Your FullNameS :{" "}
               </label>
               <input
                 onChange={handleChange}
