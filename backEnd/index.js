@@ -4,31 +4,20 @@ import mongoose from "mongoose";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded());
 app.use(cors(
   {
     origin: ["https://blackpink-mu.vercel.app/"],
     preflightContinue: true,
     methods:["POST", "GET"],
     credentials: true,
-    "headers": [
-              { "key": "Access-Control-Allow-Credentials", "value": "true" },
-              { "key": "Access-Control-Allow-Origin", "value": "https://blackpink-mu.vercel.app/" },
-              { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
-              { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
-    ]
   }
 ));
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-});
 
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose
-  .connect("mongodb://0.0.0.0:0/mernstack", {
+  .connect(DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
