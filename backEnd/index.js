@@ -84,11 +84,11 @@ app.post("/register", (req, res) => {
   });
 });
 
-app.get("/", (req,res)=>{
+app.get("/",cors(), (req,res)=>{
   res.json("Hello")
 })
 
-app.listen("https://blackpink-blink-beryl.vercel.app/", () => {
+app.listen(9002, () => {
   console.log("Be started at Port 9002");
 });
 
