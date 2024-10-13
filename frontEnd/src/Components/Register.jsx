@@ -78,7 +78,7 @@ const Register = ({setLoginRegister}) => {
           <form>
             <div className="">
               <label className="form-label font-semibold mx-1 text-xl ">
-              Your FullNameS :{" "}
+              Your FullName :{" "}
               </label>
               <input
                 onChange={handleChange}
