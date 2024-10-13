@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose
-  .connect(DB, {
+  .connect("mongodb://0.0.0.0:0/mernstack", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
