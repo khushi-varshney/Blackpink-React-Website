@@ -21,7 +21,7 @@ const Login = ({setLoginRegister}) => {
     })
   }
 
-  axios.defaults.withCredentials=true;
+  // axios.defaults.withCredentials=true;
   const login = ()=>{
     axios.post("https://blackpink-blink-beryl.vercel.app/login", user)
     .then(res => {

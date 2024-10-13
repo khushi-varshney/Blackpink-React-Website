@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended : true}));
 app.use(cors(
   {
     origin: ["https://blackpink-mu.vercel.app/"],
