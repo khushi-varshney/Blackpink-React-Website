@@ -29,7 +29,15 @@ const Register = ({setLoginRegister}) => {
     const { name, email, password, reEnterPassword } = user
     if( name && email && password && (password == reEnterPassword)){
       // axios.post("http://localhost:9002/register", user)
-      axios.post("https://blackpink-blink-beryl.vercel.app/register", user)
+      axios.post("https://blackpink-blink-beryl.vercel.app/register", {
+        user
+    }, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+        withCredentials: false,
+        crossdomain: true
+    })
       .then(res =>{
         // toast(res.data.message, {
         // position: "top-right",
@@ -78,7 +86,7 @@ const Register = ({setLoginRegister}) => {
           <form>
             <div className="">
               <label className="form-label font-semibold mx-1 text-xl ">
-              Your FullNameS :{" "}
+              Your FullName :{" "}
               </label>
               <input
                 onChange={handleChange}
