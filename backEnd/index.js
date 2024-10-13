@@ -17,12 +17,14 @@ app.use((req, res, next) => {
 
 app.use(cors(
   {
-    origin: ["https://blackpink-mu.vercel.app/"],
+    origin: ["https://blackpink-mu.vercel.app"],
     preflightContinue: true,
     methods:["POST", "GET"],
     credentials: true,
   }
 ));
+// CORS_ORIGIN_ALLOW_ALL = False
+// CORS_ALLOW_CREDENTIALS = True
 
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
 
