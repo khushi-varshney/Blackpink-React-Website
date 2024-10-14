@@ -21,10 +21,10 @@ const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/merns
 
 mongoose
   .connect(DB, {
-    // useUnifiedTopology: true,
-    // useNewUrlParser: true,
-    // useCreateIndex: true,
-    // useFindAndModify:false
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify:false
   })
   .then(() => console.log("MongoDB Connected"))
   .catch((error) => console.log(error));
