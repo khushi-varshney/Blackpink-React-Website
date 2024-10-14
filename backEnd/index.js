@@ -21,12 +21,12 @@ const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/merns
 
 mongoose
   .connect(DB, {
-    // useUnifiedTopology: true,
-    // useNewUrlParser: true,
-    // useCreateIndex: true,
-    // useFindAndModify:false
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify:false
   })
-  .then(() => console.log("MongoDB Connected"))
+  .then(() => alert("MongoDB Connected"))
   .catch((error) => console.log(error));
 
 const userSchema = new mongoose.Schema({
@@ -67,6 +67,7 @@ app.post("/register", (req, res) => {
         password,
       })
       user.save().then(()=>{
+          alert("registered")
           res.send({ message: "Successfully Registered" });
         }
       );

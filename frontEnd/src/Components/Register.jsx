@@ -49,7 +49,6 @@ const Register = ({setLoginRegister}) => {
         // progress: undefined,
         // theme: "dark",
         // });
-        alert(res.data.user)
         setLoginRegister(res.data.user);
         navigate("/login");
     })
