@@ -50,7 +50,7 @@ const Register = ({setLoginRegister}) => {
         // theme: "dark",
         // });
         setLoginRegister(res.data.user);
-        navigate("/login");
+        navigate("https://blackpink-mu.vercel.app/login");
     })
     }else {
       toast("Invalid Inputs", {
