@@ -56,15 +56,15 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  const { name, email, password } = req.body;
-  User.findOne({ email: email }).then((user) => {
+  const { Ename, Eemail, Epassword } = req.body;
+  User.findOne({ email: Eemail }).then((user) => {
     if (user) {
       res.send({ message: "User Already Registered" });
     } else {
       const user = new User({
-        name,
-        email,
-        password,
+        name : Ename,
+        email: Eemail,
+        password : Epassword,
       })
       user.save().then(()=>{
           res.send({ message: "Successfully Registered" });
