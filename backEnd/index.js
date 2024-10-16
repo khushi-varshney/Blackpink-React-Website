@@ -19,15 +19,14 @@ app.use(cors(
 
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
 
-mongoose
-  .connect(DB, {
+
+
+mongoose.connect(DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify:false
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((error) => console.log(error));
+})
+.then(() => console.log("MongoDB Connected"))
+.catch((error) => console.log(error));
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -35,7 +34,7 @@ const userSchema = new mongoose.Schema({
   password: String,
 })
 
-const User = new mongoose.model("User", userSchema);
+const User =  mongoose.model('User', userSchema);
 
 //Routes
 app.post("/login", (req, res) => {
@@ -62,9 +61,9 @@ app.post("/register", (req, res) => {
       res.send({ message: "User Already Registered" });
     } else {
       const user = new User({
-        name : Ename,
-        email: Eemail,
-        password : Epassword,
+        Ename,
+        Eemail,
+        Epassword,
       })
       user.save().then(()=>{
           res.send({ message: "Successfully Registered" });
