@@ -46,7 +46,11 @@ const Login = ({setLoginRegister}) => {
       });
       console.log(res.data.user[0])
       setLoginRegister(res.data.user[0])
-      navigate("/")
+      setTimeout(()=>{
+        if(res){
+          navigate("/login");
+        }
+      },3000)
     })
   }
 
