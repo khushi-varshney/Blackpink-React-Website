@@ -23,6 +23,7 @@ const Login = ({setLoginRegister}) => {
 
   // axios.defaults.withCredentials=true;
   const login = ()=>{
+    // axios.post("http://localhost:9002/login", user)
     axios.post("https://blackpink-blink-beryl.vercel.app/login", {
       user
   }, {

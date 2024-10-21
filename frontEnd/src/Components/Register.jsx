@@ -22,10 +22,10 @@ const Register = ({setLoginRegister}) => {
       ...user, [name]: value
     })
   }
-  axios.defaults.withCredentials=true;
+  // axios.defaults.withCredentials=true;
 
 
-  const register = () =>{
+  const register = async() =>{
     const { name, email, password, reEnterPassword } = user
     if( name && email && password && (password == reEnterPassword)){
       // axios.post("http://localhost:9002/register", user)
@@ -39,18 +39,24 @@ const Register = ({setLoginRegister}) => {
         crossdomain: true
     })
       .then(res =>{
-        // toast(res.data.message, {
-        // position: "top-right",
-        // autoClose: 2000,
-        // hideProgressBar: false,
-        // closeOnClick: true,
-        // pauseOnHover: false,
-        // draggable: true,
-        // progress: undefined,
-        // theme: "dark",
-        // });
-        setLoginRegister(res.data.user);
-        navigate("/login");
+        toast(res.data.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+        
+        // setLoginRegister(res.data.user);
+        setTimeout(()=>{
+          if(res){
+            navigate("/login");
+          }
+        },3000)
+        
     })
     }else {
       toast("Invalid Inputs", {

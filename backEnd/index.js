@@ -6,10 +6,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 
-
+// app.use(cors());
 app.use(cors(
   {
-    origin: ["https://blackpink-mu.vercel.app", "https://blackpink-mu.vercel.app/login"],
+    origin: "http://localhost:5173/register",
     preflightContinue: true,
     methods:["POST", "GET"],
     credentials: true,    
@@ -55,18 +55,19 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  const { Ename, Eemail, Epassword } = req.body;
-  User.findOne({ email: Eemail }).then((user) => {
+  const { name, email, password } = req.body;
+  User.findOne({ email }).then((user) => {
     if (user) {
-      res.send({ message: "User Already Registered" });
+      // res.send({ message: "User Already Registered"});
+      res.send({message: "User Already Registered", user})
     } else {
       const user = new User({
-        Ename,
-        Eemail,
-        Epassword,
+        name,
+        email,
+        password,
       })
       user.save().then(()=>{
-          res.send({ message: "Successfully Registered" });
+          res.send({ message: "Successfully Registered", user });
         }
       );
     }
