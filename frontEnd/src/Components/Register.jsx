@@ -47,7 +47,7 @@ const Register = ({setLoginRegister}) => {
           if(res){
             navigate("/login");
           }
-        },3000)
+        },2000)
         
     })
     }else {
