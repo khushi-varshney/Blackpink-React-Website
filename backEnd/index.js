@@ -15,9 +15,14 @@ app.use(cors({
 }))
 
 
+app.use((req,res,next)=>{
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Alow-Methods', 'GET,POST,PUT,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+})
+
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
-
-
 
 mongoose.connect(DB, {
     useUnifiedTopology: true,
