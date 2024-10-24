@@ -6,15 +6,15 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 
-// app.use(cors());
-app.use(cors(
-  {
-    origin: "https://blackpink-mu.vercel.app/register",
-    preflightContinue: true,
-    methods:["POST", "GET"],
-    credentials: true,    
-  }
-));
+app.use(cors());
+// app.use(cors(
+//   {
+//     origin: "https://blackpink-mu.vercel.app/register",
+//     preflightContinue: true,
+//     methods:["POST", "GET"],
+//     credentials: true,    
+//   }
+// ));
 
 
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
 const User =  mongoose.model('User', userSchema);
 
 //Routes
-app.post("/login", (req, res) => {
+app.post("/login", async(req, res) => {
   const { email, password} = req.body
   User.find({email: email}).then((user)=>{
     if(user){
@@ -54,7 +54,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post("https://blackpink-mu.vercel.app/register", (req, res) => {
+app.post("/register", async(req, res) => {
   const { name, email, password } = req.body;
   User.findOne({ email }).then((user) => {
     if (user) {
