@@ -7,14 +7,12 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // app.use(cors());
-app.use(cors(
-  {
-    origin: "https://blackpink-mu.vercel.app/",
-    preflightContinue: true,
-    methods:["POST", "GET"],
-    credentials: true,    
-  }
-));
+app.use(cors({
+  origin: ['https://blackpink-mu.vercel.app/', 'http://localhost:5173/'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}))
 
 
 const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
