@@ -35,22 +35,20 @@ const Login = ({setLoginRegister}) => {
   })
     .then(res => {
       toast(res.data.message, {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
-      console.log(res.data.user[0])
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+      console.log(res.data.user)
       setLoginRegister(res.data.user[0])
-      setTimeout(()=>{
-        if(res){
-          navigate("/login");
-        }
-      },3000)
+      // if(res.data.message=="Login Successfully"){
+      //   navigate("/");
+      // }
     })
   }
 
@@ -69,7 +67,6 @@ const Login = ({setLoginRegister}) => {
         theme="dark"
       />
       <div className="border-[2px] border-black rounded-lg mx-20 my-4 py-7 px-10">
-        {console.log(user)}
         <form>
           <div className="">
             <label className="form-label font-semibold mx-1 text-xl ">

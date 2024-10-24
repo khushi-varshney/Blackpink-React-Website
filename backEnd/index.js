@@ -9,7 +9,7 @@ app.use(express.urlencoded());
 // app.use(cors());
 app.use(cors(
   {
-    origin: "http://localhost:5173/register",
+    origin: "https://blackpink-mu.vercel.app/register",
     preflightContinue: true,
     methods:["POST", "GET"],
     credentials: true,    
@@ -42,7 +42,7 @@ app.post("/login", (req, res) => {
   User.find({email: email}).then((user)=>{
     if(user){
         if(password === user[0].password){
-        res.send({message: "Login Successfully", user:user})
+        res.send({message: "Login Successfully",user})
       }else{
         res.send({message : "Incorrect Password"})
       }
@@ -67,7 +67,7 @@ app.post("/register", (req, res) => {
         password,
       })
       user.save().then(()=>{
-          res.send({ message: "Successfully Registered", user });
+          res.send({ message: "Successfully Registered"});
         }
       );
     }

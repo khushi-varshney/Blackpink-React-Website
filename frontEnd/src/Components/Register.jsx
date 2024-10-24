@@ -86,7 +86,6 @@ const Register = ({setLoginRegister}) => {
         pauseOnHover
         theme="dark"
       />
-      {console.log("User :", user)}
       <div className="flex justify-center text-center">
         <div className="border-[2px] border-black rounded-lg mx-20 my-4 py-7 px-10">
           <form>
