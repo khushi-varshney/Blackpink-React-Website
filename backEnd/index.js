@@ -54,7 +54,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post("/register", (req, res) => {
+app.post("https://blackpink-mu.vercel.app/register", (req, res) => {
   const { name, email, password } = req.body;
   User.findOne({ email }).then((user) => {
     if (user) {
