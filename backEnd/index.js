@@ -9,7 +9,7 @@ app.use(express.urlencoded());
 // app.use(cors());
 app.use(cors(
   {
-    origin: "https://blackpink-mu.vercel.app/register",
+    origin: "https://blackpink-mu.vercel.app/",
     preflightContinue: true,
     methods:["POST", "GET"],
     credentials: true,    
