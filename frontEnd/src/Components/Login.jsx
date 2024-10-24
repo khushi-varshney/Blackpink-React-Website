@@ -24,15 +24,7 @@ const Login = ({setLoginRegister}) => {
   // axios.defaults.withCredentials=true;
   const login = ()=>{
     // axios.post("http://localhost:9002/login", user)
-    axios.post("https://blackpink-backend.vercel.app/login", {
-      user
-  }, {
-      headers: {
-          'Content-Type': 'multipart/form-data',
-      },
-      withCredentials: false,
-      crossdomain: true
-  })
+    axios.post("https://blackpink-backend.vercel.app/login",user)
     .then(res => {
       toast(res.data.message, {
         position: "top-right",
