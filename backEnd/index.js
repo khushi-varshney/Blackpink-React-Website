@@ -1,7 +1,9 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import * as dotenv from "dotenv"; 
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
@@ -21,7 +23,7 @@ app.use((req, res, next) => {
   next();
 })
 
-mongoose.set("strictQuery", true);
+
 mongoose.connect(process.env.MONGO_DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -85,5 +87,3 @@ app.listen(9002, () => {
   console.log("Be started at Port 9002");
 });
 
-
-// mongodb+srv://user:<db_password>@cluster0.4lsix.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
