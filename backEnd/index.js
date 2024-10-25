@@ -3,7 +3,6 @@ import cors from "cors";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv"; 
 
-dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
@@ -23,7 +22,7 @@ app.use((req, res, next) => {
   next();
 })
 
-
+dotenv.config();
 mongoose.connect(process.env.MONGO_DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
