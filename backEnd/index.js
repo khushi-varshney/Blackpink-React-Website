@@ -22,8 +22,8 @@ app.use((req, res, next) => {
   next();
 })
 
-dotenv.config();
-mongoose.connect(process.env.MONGO_DB, {
+const DB="mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
+mongoose.connect(DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 })
