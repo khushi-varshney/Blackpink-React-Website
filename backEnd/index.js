@@ -21,8 +21,9 @@ app.use((req, res, next) => {
   next();
 })
 
+const DB = "mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
 
-mongoose.connect(process.env.MONGO_DB, {
+mongoose.connect(DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 })
@@ -85,3 +86,5 @@ app.listen(9002, () => {
   console.log("Be started at Port 9002");
 });
 
+
+// mongodb+srv://user:<db_password>@cluster0.4lsix.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
