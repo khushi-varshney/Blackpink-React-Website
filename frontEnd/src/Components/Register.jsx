@@ -109,7 +109,7 @@ const Register = ({setLoginRegister}) => {
                 placeholder="example@gmail.com"
               />
               <div id="emailHelp" className="form-text p-1 text-pink-800">
-                We'll never share your email with with anyone else.
+                We'll never share your email with anyone else.
               </div>
               <div className="mb-3 mt-3">
                 <label className="form-label font-semibold mx-1 text-xl">
