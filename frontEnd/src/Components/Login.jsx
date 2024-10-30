@@ -37,6 +37,9 @@ const Login = ({setLoginRegister}) => {
         theme: "dark",
         });
       console.log(res.data.user)
+
+
+      
       setLoginRegister(res.data.user[0])
       if(res.data.message=="Login Successfully"){
         navigate("/");

@@ -22,7 +22,8 @@ app.use((req, res, next) => {
   next();
 })
 
-const DB="mongodb+srv://user:koHKbEuxFTqC6OSk@cluster0.4lsix.mongodb.net/mernstack?retryWrites=true&w=majority&appName=Cluster0"
+dotenv.config();
+const DB=process.env.MONGODB_URI;
 mongoose.connect(DB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -43,8 +44,9 @@ app.post("/login", async(req, res) => {
   const { email, password} = req.body
   User.find({email: email}).then((user)=>{
     if(user){
-        if(password === user[0].password){
-        res.send({message: "Login Successfully",user})
+      const isValidPassword = bcrypt.compareSync(password, user[0].password);
+      if(isValidPassword){
+      res.send({message: "Login Successfully",user})
       }else{
         res.send({message : "Incorrect Password"})
       }
@@ -63,10 +65,12 @@ app.post("/register", async(req, res) => {
       // res.send({ message: "User Already Registered"});
       res.send({message: "User Already Registered", user})
     } else {
+      const salt = bcrypt.genSaltSync(10);
+      const hashedpassword = bcrypt.hashSync(password, salt);
       const user = new User({
         name,
         email,
-        password,
+        password:hashedpassword,
       })
       user.save().then(()=>{
           res.send({ message: "Successfully Registered"});
